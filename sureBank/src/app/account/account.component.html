@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounts</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Importar Font Awesome -->
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul class="nav">
+      <li class="nav-item">
+        <a href="deposit" class="nav-link">Consing</a>
+      </li>
+      <li class="nav-item">
+        <a href="withdraw" class="nav-link">withdraw</a>
+      </li>
+      <li class="nav-item">
+        <a href="check-balance" class="nav-link">Consult</a>
+      </li>
+      <li class="nav-item">
+        <a href="account-management" class="nav-link">Create Account</a>
+      </li>
+      <li class="nav-item">
+        <a href="record" class="nav-link">Records</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Accounts</h1>
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th>Account Number</th>
+            <th>Balance</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let account of accounts">
+            <td>{{ account.account_number }}</td>
+            <td>{{ account.balance }}</td>
+            <td>
+              <a [routerLink]="['/deposit']" [queryParams]="{ accountNumber: account.account_number }" title="Consign">
+                <i class="fas fa-plus-circle"></i>
+              </a>
+              <a [routerLink]="['/withdraw']" [queryParams]="{ accountNumber: account.account_number }" title="Withdraw">
+                <i class="fas fa-minus-circle"></i>
+              </a>     
+              <a [routerLink]="['/check-balance']" [queryParams]="{ accountNumber: account.account_number }" title="Check Balance">
+                <i class="fas fa-search"></i>
+              </a>      
+            </td>
+          </tr>
+        </tbody>
+      </table>
+<nav>
+  <button (click)="logout()">Logout</button>
+</nav>
+
+  </div>
+
+</body>
+</html>

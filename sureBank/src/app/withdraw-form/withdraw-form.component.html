@@ -1,0 +1,26 @@
+<div class="style">
+  <div class="withdraw-container">
+    <h2>Withdraw</h2>
+    <div class="withdraw-container" style="max-width: 600px; padding: 40px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+      <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()">
+        <div class="form-group">
+          <label for="accountNumber">Account Number</label>
+          <input type="number" formControlName="accountNumber" id="accountNumber" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount to withdraw</label>
+          <input type="number" formControlName="amount" id="amount" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" id="password" class="form-control" required>
+        </div>
+        <div *ngIf="message" class="alert" [ngClass]="{'alert-success': message.startsWith('Consign successful'), 'alert-danger': message.startsWith('Error')}">
+          {{ message }}
+        </div>
+        <button type="submit" class="btn btn-primary">Withdraw</button>
+        <button type="button" class="btn btn-back" (click)="goBack()">Back</button>
+      </form>
+    </div>
+  </div>
+</div>

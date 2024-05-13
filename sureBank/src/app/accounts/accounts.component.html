@@ -1,0 +1,14 @@
+<!-- accounts.component.html -->
+
+<div *ngIf="accounts.length > 0">
+  <h2>Accounts</h2>
+  <ul>
+    <li *ngFor="let account of accounts">
+      Account Number: {{ account.account_number }} - Balance: {{ account.balance }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="errorMessage">
+  <p>{{ errorMessage }}</p>
+</div>

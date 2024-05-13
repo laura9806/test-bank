@@ -1,0 +1,34 @@
+<div class="style">
+  <div class="account-balance-container">
+      <h2>Check Balance</h2>
+      <form [formGroup]="checkBalanceForm" (ngSubmit)="checkBalance()">
+        <div class="form-group">
+          <label>Account Number</label>
+          <input type="number" formControlName="accountNumber" class="form-control" id="accountNumber">
+        </div>
+        <div *ngIf="message" class="alert" [ngClass]="{'alert-success': message.startsWith('Consign successful'), 'alert-danger': message.startsWith('Error')}">
+          {{ message }}
+        </div>
+        <button type="submit" class="btn btn-primary">Check Balance</button>
+        <button type="button" class="btn btn-back" (click)="goBack()">Back</button>
+      </form>
+    
+      <div *ngIf="balance !== null" class="mt-3">
+        <h3>Current Balance</h3>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ balance }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+  </div>
+</div>
+  
