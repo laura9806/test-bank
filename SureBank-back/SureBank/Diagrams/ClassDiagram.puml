@@ -1,0 +1,57 @@
+@startuml
+
+class Account {
+    -id: int
+    -accountNumber: int
+    -password: String
+    -balance: BigDecimal
+    -statusId: int
+    -typeId: int
+    -userId: int
+    -creationDate: Date
+}
+
+class Status {
+    -id: int
+    -description: String
+}
+
+class Type {
+    -id: int
+    -description: String
+}
+
+class MovementType {
+    -id: int
+    -description: String
+}
+
+class Record {
+    -id: int
+    -date: Date
+    -amount: int
+    -accountId: int
+    -movementTypeId: int
+}
+
+class User {
+    -id: int
+    -password: String
+    -lastLogin: Date
+    -isSuperuser: boolean
+    -username: String
+    -firstName: String
+    -lastName: String
+    -email: String
+    -isStaff: boolean
+    -isActive: boolean
+    -dateJoined: Date
+}
+
+Account --> Status
+Account --> Type
+Record --> MovementType
+Record --> Account
+User --> Account
+
+@enduml

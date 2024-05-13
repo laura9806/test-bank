@@ -1,0 +1,29 @@
+@startuml
+
+left to right direction
+skinparam packageStyle rectangle
+
+actor User
+rectangle "Accounts" {
+    usecase "Create account" as UC1
+    usecase "Login" as UC2
+    usecase "Logout" as UC3
+    usecase "Deposit" as UC4
+    usecase "Withdraw" as UC5
+    usecase "Check balance" as UC6
+    User --> UC1
+    User --> UC2
+    User --> UC3
+    User --> UC4
+    User --> UC5
+    User --> UC6
+}
+
+rectangle "Administration" {
+    usecase "Manage accounts" as UC7
+    usecase "Generate reports" as UC8
+    User --> UC7
+    User --> UC8
+}
+
+@enduml
